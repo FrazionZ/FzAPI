@@ -17,11 +17,11 @@ class UpdaterController extends Controller
     
     public function check(Request $request, $target, $arch, $current_version) {
         $sig_file = 'signature.sig';
-        $latestRelease = $this->gitHubReleaseService->getLatestRelease("FrazionZ", "FzLauncherReleases");
+        /*$latestRelease = $this->gitHubReleaseService->getLatestRelease("FrazionZ", "FzLauncherReleases");
 
         if(count($latestRelease['assets']) < 2) return response()->json(['status' => 'error', 'message' => 'Assets list empty']);
 
-        /*if ($latestRelease && isset($latestRelease['assets'])) {
+        if ($latestRelease && isset($latestRelease['assets'])) {
             foreach ($latestRelease['assets'] as $asset) {
                 if ($asset['name'] === $sig_file) {
                     $fileContent = $this->gitHubReleaseService->downloadFile($asset['browser_download_url'], $sig_file);
@@ -30,7 +30,7 @@ class UpdaterController extends Controller
                     }
                 }
             }
-        }*/
+        }
 
         $tag_splited = explode('-', $latestRelease['name']);
         if(count($tag_splited) !== 3) return response()->json(['status' => 'error', 'message' => 'Name version not valid.']);
@@ -45,7 +45,9 @@ class UpdaterController extends Controller
             'url' => $latestRelease['assets'][0]['browser_download_url'],
             'signtaures' => $latestRelease['sig_content'],
             'notes' => $latestRelease['body']
-        ]);
+        ]);*/
+
+        return response()->json([]);
     }
 
 }
