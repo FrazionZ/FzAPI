@@ -21,7 +21,7 @@ class UpdaterController extends Controller
 
         if(count($latestRelease['assets']) < 2) return response()->json(['status' => 'error', 'message' => 'Assets list empty']);
 
-        if ($latestRelease && isset($latestRelease['assets'])) {
+        /*if ($latestRelease && isset($latestRelease['assets'])) {
             foreach ($latestRelease['assets'] as $asset) {
                 if ($asset['name'] === $sig_file) {
                     $fileContent = $this->gitHubReleaseService->downloadFile($asset['browser_download_url'], $sig_file);
@@ -30,7 +30,7 @@ class UpdaterController extends Controller
                     }
                 }
             }
-        }
+        }*/
 
         $tag_splited = explode('-', $latestRelease['name']);
         if(count($tag_splited) !== 3) return response()->json(['status' => 'error', 'message' => 'Name version not valid.']);
