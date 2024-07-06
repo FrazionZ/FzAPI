@@ -12,7 +12,7 @@ class UpdaterController extends Controller
 
     public function __construct(GitHubReleaseService $gitHubReleaseService)
     {
-        //$this->gitHubReleaseService = $gitHubReleaseService;
+        $this->gitHubReleaseService = $gitHubReleaseService;
     }
     
     public function check(Request $request, $target, $arch, $current_version) {
