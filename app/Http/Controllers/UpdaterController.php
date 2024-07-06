@@ -17,7 +17,7 @@ class UpdaterController extends Controller
     
     public function check(Request $request, $target, $arch, $current_version) {
         $sig_file = 'signature.sig';
-        /*$latestRelease = $this->gitHubReleaseService->getLatestRelease("FrazionZ", "FzLauncherReleases");
+        $latestRelease = $this->gitHubReleaseService->getLatestRelease("FrazionZ", "FzLauncherReleases");
 
         if(count($latestRelease['assets']) < 2) return response()->json(['status' => 'error', 'message' => 'Assets list empty']);
 
@@ -45,7 +45,7 @@ class UpdaterController extends Controller
             'url' => $latestRelease['assets'][0]['browser_download_url'],
             'signtaures' => $latestRelease['sig_content'],
             'notes' => $latestRelease['body']
-        ]);*/
+        ]);
 
         return response()->json([]);
     }
