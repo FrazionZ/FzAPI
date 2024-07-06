@@ -43,7 +43,7 @@ class UpdaterController extends Controller
             'version' => $name_version,
             'pub_date' => $latestRelease['published_at'],
             'url' => $latestRelease['assets'][0]['browser_download_url'],
-            'signtaures' => $latestRelease['sig_content'],
+            'signatures' => $latestRelease['sig_content'],
             'notes' => $latestRelease['body']
         ]);
 
