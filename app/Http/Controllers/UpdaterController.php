@@ -24,7 +24,7 @@ class UpdaterController extends Controller
         if ($latestRelease && isset($latestRelease['assets'])) {
             foreach ($latestRelease['assets'] as $asset) {
                 if ($asset['name'] === $sig_file) {
-                    $fileContent = $this->gitHubReleaseService->downloadFile($asset['browser_download_url'], $sig_file);
+                    $fileContent = $this->gitHubReleaseService->getCachedSigContent($asset['browser_download_url'], $sig_file);
                     if ($fileContent !== null) {
                         $latestRelease['sig_content'] = $fileContent;
                     }
