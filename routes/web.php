@@ -8,8 +8,5 @@ Route::get('/oue', function () {
 });
 
 Route::name('updater.')->prefix('updater')->group(function () {
-    Route::get('/oue', function () {
-        return response()->json([]);
-    });
     Route::get('/check/{target}/{arch}/{current_version}', [UpdaterController::class, 'check'])->name('check');
 });
